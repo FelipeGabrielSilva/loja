@@ -14,7 +14,7 @@ export class ProdutoDTO {
 
     @IsNumber()
     @Min(0, { message: 'Quantidade mínima inválida' })
-    quantidade: number;
+    quantidadeDisponivel: number;
 
     @IsString()
     @IsNotEmpty({ message: 'Descrição do produto não pode ser vazia ' })
@@ -25,15 +25,14 @@ export class ProdutoDTO {
 
     @ValidateNested()
     @IsArray()
-    @ArrayMinSize(3)
     @Type(() => CaracteristicaProdutoDTO)
-    caracteristica: CaracteristicaProdutoDTO[];
+    caracteristicas: CaracteristicaProdutoDTO[];
 
     @ValidateNested()
     @IsArray()
     @ArrayMinSize(1)
     @Type(() => ImagemProdutoDTO)
-    imagem: ImagemProdutoDTO[];
+    imagens: ImagemProdutoDTO[];
 
     @IsString()
     @IsNotEmpty({ message: 'Categoria do produto não pode ser vazia' })
